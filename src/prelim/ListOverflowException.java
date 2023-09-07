@@ -1,4 +1,8 @@
 package prelim;
 
-public class ListOverflowException extends java.lang.Throwable{
+public class ListOverflowException extends Exception {
+    public ListOverflowException(String message) {
+        super(message);
+    }
+
 }
