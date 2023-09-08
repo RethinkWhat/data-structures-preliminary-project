@@ -42,9 +42,21 @@ public class MyFixedSizeArrayList implements MyList<Object> {
         return -1;
     }
 
+    public Object getObject(int search) {
+        return arrayObject[search];
+    }
+
     public void updateArray(Object[] newArray) {
         Arrays.fill(arrayObject, null);
         System.arraycopy(arrayObject, 0, newArray, 0, newArray.length);
+    }
+
+    public void display() {
+        int x= 1;
+        for (Object object:this.arrayObject) {
+            System.out.println(x + ". " + object);
+            x++;
+        }
     }
 
 
