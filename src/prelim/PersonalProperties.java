@@ -64,8 +64,8 @@ public class PersonalProperties {
     }
     public static void showIntroduction(){
         System.out.println("==============================================================================");
-        System.out.println("\tThis application is capable of accepting a list of 5 \n" +
-                "different personal properties. The list itself has several different features.");
+        System.out.println("\t\tThis application is capable of accepting a list of 5 different\n" +
+                "\tpersonal properties. The list itself has several different features.");
         System.out.println("==============================================================================");
     }
 
@@ -115,7 +115,7 @@ public class PersonalProperties {
     }
 
     public static void deleteProperty() {
-        System.out.println("Here are a list of the properties in the list:");
+        System.out.println("Here are all of the properties in the list:");
         propertiesList.display();
         int index = 0;
         do {
