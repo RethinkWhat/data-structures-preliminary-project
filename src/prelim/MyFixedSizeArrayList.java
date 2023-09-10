@@ -3,9 +3,9 @@ package prelim;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-public class MyFixedSizeArrayList implements MyList<Object> {
+public class MyFixedSizeArrayList implements MyList {
 
-    final private Object[] arrayObject = new String[5];
+    final private Object[] arrayObject = new Object[5];
     private int indexCount = 0;
 
     public int getSize() {
@@ -14,20 +14,31 @@ public class MyFixedSizeArrayList implements MyList<Object> {
 
     public void insert(Object data) throws ListOverflowException {
         if (indexCount >4)
-            throw new ListOverflowException("The number of elements in the list are already 5.");
+            throw new ListOverflowException();
         else {
             arrayObject[indexCount] = data;
             indexCount++;
         }
     }
 
+
     public boolean delete(Object deleteKey) {
         final Object[] copiedArray = new Object[5];
         int deleteIndex = search(deleteKey);
+        boolean deleteDone = false;
         if (deleteIndex!= -1) {
-            for (int x = 0; x < arrayObject.length; x++)
-                if (x != deleteIndex)
-                    arrayObject[x] = copiedArray[x];
+            for (int x = 0; x < arrayObject.length; x++) {
+                if (x==deleteIndex) {
+                    deleteDone = true;
+                }
+                if (x!= copiedArray.length-1) {
+                    if (deleteDone)
+                        copiedArray[x] = arrayObject[x + 1];
+                    else {
+                        copiedArray[x] = arrayObject[x];
+                    }
+                }
+            }
             updateArray(copiedArray);
             indexCount--;
             return true;
@@ -37,27 +48,36 @@ public class MyFixedSizeArrayList implements MyList<Object> {
 
     public int search(Object search) {
         for (int x =0; x <arrayObject.length; x++)
-            if (arrayObject[x] == search)
+            if (arrayObject[x] == search) {
                 return x;
+            }
         return -1;
+
     }
 
-    public Object getObject(int search) {
-        return arrayObject[search];
+    public Object getElement(Object data) throws NoSuchElementException{
+        return arrayObject[search(data)];
     }
+
+    public Object getElementAtIndex(int index) throws NoSuchElementException {
+        return getElement(arrayObject[index]);
+    }
+
 
     public void updateArray(Object[] newArray) {
-        Arrays.fill(arrayObject, null);
-        System.arraycopy(arrayObject, 0, newArray, 0, newArray.length);
+        for (int x=0; x< newArray.length; x++)
+            arrayObject[x] = null;
+        for (int x=0; x<arrayObject.length; x++)
+            arrayObject[x] = newArray[x];
     }
 
     public void display() {
         int x= 1;
         for (Object object:this.arrayObject) {
-            System.out.println(x + ". " + object);
-            x++;
+            if (object!=null) {
+                System.out.println("\t\t" + x + ". " + object);
+                x++;
+            }
         }
     }
-
-
 }

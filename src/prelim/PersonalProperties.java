@@ -5,7 +5,7 @@ import static java.lang.Boolean.parseBoolean;
 
 public class PersonalProperties {
 
-    public class Property {
+    public static class Property {
         private String propertyName;
         private int quantity;
         private String model;
@@ -48,18 +48,17 @@ public class PersonalProperties {
     public static Scanner keyboard = new Scanner(System.in);
     public  static MyFixedSizeArrayList propertiesList = new MyFixedSizeArrayList();
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
+        showIntroduction();
         do {
             try {
                 run();
             } catch (ListOverflowException ex) {
-                System.out.println("The list already has 5 properties in it.");
             }
         } while (true);
     }
 
-    public void run() throws ListOverflowException {
-        showIntroduction();
+    public static void run() throws ListOverflowException {
         logicMenu(showMenu());
 
     }
@@ -73,20 +72,29 @@ public class PersonalProperties {
     public static int showMenu() {
         int input = 0;
         do {
-            System.out.println("Enter the number of what you would like to do:");
-            System.out.println("\t1. Add property to list.");
-            System.out.println("\t2. Display information of property in list.");
-            System.out.println("\t3. Delete property in list");
-            System.out.println("\t4. Quit.");
-            input = Integer.parseInt(keyboard.nextLine());
+            try {
+                System.out.println("Enter the number of what you would like to do:");
+                System.out.println("\t1. Add property to list.");
+                System.out.println("\t2. Display all properties and their respective information.");
+                System.out.println("\t3. Delete property in list");
+                System.out.println("\t4. Quit.");
+                System.out.print("\t\t -> ");
+                input = Integer.parseInt(keyboard.nextLine());
+            } catch (NumberFormatException ex) {
+                System.out.println("Enter a valid number.");
+            }
         } while(input >4 || input <1);
         return input;
     }
 
-    public void logicMenu(int choice) throws ListOverflowException{
+    public static void logicMenu(int choice) throws ListOverflowException{
         switch (choice) {
             case 1 -> addProperty();
-            case 2 -> propertiesList.display();
+            case 2 -> {
+                propertiesList.display();
+                System.out.println("Press enter to return to menu.");
+                keyboard.nextLine();
+            }
             case 3 -> deleteProperty();
             case 4 -> exit();
         }
@@ -97,28 +105,29 @@ public class PersonalProperties {
         System.exit(0);
     }
 
-    public void addProperty() throws ListOverflowException {
+    public static void addProperty() throws ListOverflowException {
         System.out.println();
         String itemName = requestInput("Enter the property name. ");
-        int quantity = Integer.parseInt(requestInput("Enter the quantity of the said property."_);
+        int quantity = Integer.parseInt(requestInput("Enter the quantity of the said property."));
         String model = requestInput("Enter the model.");
         Property newObject = new Property(itemName,quantity,model);
         propertiesList.insert(newObject);
     }
 
-    public void deleteProperty() {
-        System.out.println();
+    public static void deleteProperty() {
+        System.out.println("Here are a list of the properties in the list:");
         propertiesList.display();
         int index = 0;
         do {
             index = Integer.parseInt(requestInput("Enter the index of the item you would like to delete."));
         } while (index < 0 || index > propertiesList.getSize());
-        propertiesList.delete(propertiesList.getObject(index));
+        index -= 1;
+        propertiesList.delete(propertiesList.getElementAtIndex(index));
     }
 
     public static String requestInput(String prompt) {
-        System.out.println(prompt);
-        System.out.print("--> ");
+        System.out.println("\t" + prompt);
+        System.out.print("\t\t--> ");
         return keyboard.nextLine();
     }
 }
