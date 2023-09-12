@@ -7,8 +7,9 @@ public class practice {
         list.insertAtTail(7);
         list.insertAtTail(8);
         list.insertAtTail(9);
-        list.insertAtTail(10);
-        list.insertAtIndex(3,100);
+        list.insertAtTail(69);
+        //list.insertAtIndex(4,100);
+        list.deleteAtIndex(4);
         System.out.println(list);
     }
 }

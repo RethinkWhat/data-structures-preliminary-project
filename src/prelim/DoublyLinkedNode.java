@@ -42,12 +42,12 @@ public class DoublyLinkedNode<T> {
         this.previous = previous;
     }
 
-    @Override
     public String toString() {
-        return "DoublyLinkedNode {" +
-                "previous=" + previous +
-                ", data=" + data +
-           //     ", next=" + next +
-                "}\n";
+        return "DoublyLinkedNode Next {" +
+              //  "previous=" + previous +
+                "\n\t  data=" + data +
+                "\n\t  next=" + next +
+                "\n}";
     }
+
 }
