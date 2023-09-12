@@ -1,6 +1,6 @@
 package prelim;
 
-public class MySinglyLinkedList<T>{
+public class MySinglyLinkedList<T> {
 
     private Node head;
     private Node tail;
@@ -23,7 +23,7 @@ public class MySinglyLinkedList<T>{
 
     public int nodesCount=0;
 
-    public void insert(T data) {
+    public void insertAtTail(T data) {
         Node newNode = new Node(data);
         if (head==null) {
             head = newNode;
@@ -72,6 +72,7 @@ public class MySinglyLinkedList<T>{
         Node tempPointer = head.getNext();
         head.setNext(null);
         head = tempPointer;
+        nodesCount--;
     }
 
     public void deleteTail() {
@@ -81,6 +82,7 @@ public class MySinglyLinkedList<T>{
         }
         tempPointer.setNext(null);
         tail = tempPointer;
+        nodesCount--;
     }
 
     public void deleteAtIndex(int index) throws NullPointerException {
@@ -91,6 +93,7 @@ public class MySinglyLinkedList<T>{
         Node futurePointer = previousPointer.getNext();
         futurePointer = futurePointer.getNext();
         previousPointer.setNext(futurePointer);
+        nodesCount--;
     }
 
 
