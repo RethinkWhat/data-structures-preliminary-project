@@ -61,17 +61,26 @@ public class MyDoublyLinkedList<T> {
             for (int x = 0; x < index - 1; x++)
                 tempPointer = tempPointer.getNext();
         }
-        DoublyLinkedNode<T> after;
-        after = tempPointer.getNext();
 
-        tempPointer.setNext(newNode);
-        newNode.setPrevious(tempPointer);
+        if (tempPointer.getPrevious() == null) {
+            insertAtHead(data);
+            head = tempPointer.getPrevious();
+            System.out.println("CALLED");
+        } else if (tempPointer == tail) {
+            insertAtTail(data);
+        } else {
+            DoublyLinkedNode<T> after;
+            after = tempPointer.getNext();
 
-        newNode.setNext(after);
+            tempPointer.setNext(newNode);
+            newNode.setPrevious(tempPointer);
 
-        if (after!= null)
-            after.setPrevious(newNode);
-        nodeCount++;
+            newNode.setNext(after);
+
+            if (after != null)
+                after.setPrevious(newNode);
+            nodeCount++;
+        }
     }
 
     public Object get(int index) {
