@@ -13,8 +13,17 @@ public class Node<T> {
         this.next = null;
     }
 
+    public Node(T data, Node<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
     public T getData() {
         return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 
     public void setNext(Node<T> node) {
@@ -27,9 +36,6 @@ public class Node<T> {
 
     @Override
     public String toString() {
-        return "\n\tNode{" +
-                "data=" + data +
-                ", next=" + next +
-                "}";
+        return "\n" + data+"\n" + next;
     }
 }

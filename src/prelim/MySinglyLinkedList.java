@@ -2,33 +2,37 @@ package prelim;
 
 public class MySinglyLinkedList<T> {
 
-    private Node head;
-    private Node tail;
+    private Node<T> head;
+    private Node<T> tail;
 
-    public Node getHead() {
+    private int nodesCount = 0;
+
+    public Node<T> getHead() {
         return head;
     }
 
-    public Node getTail() {
+    public Node<T> getTail() {
         return tail;
     }
 
-    public void setHead(Node head) {
+    public void setHead(Node<T> head) {
         this.head = head;
     }
 
-    public void setTail(Node tail) {
+    public void setTail(Node<T> tail) {
         this.tail = tail;
     }
 
-    public int nodesCount=0;
+
+    public int getNodesCount() {
+        return nodesCount;
+    }
 
     public void insertAtTail(T data) {
-        Node newNode = new Node(data);
-        if (head==null) {
+        Node<T> newNode = new Node<T>(data);
+        if (head == null) {
             head = newNode;
-        }
-        else {
+        } else {
             tail.setNext(newNode);
         }
         tail = newNode;
@@ -36,12 +40,11 @@ public class MySinglyLinkedList<T> {
     }
 
     public void insertAtHead(T data) {
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node<T>(data);
         if (head == null) {
             head = newNode;
-            tail = null;
-        }
-        else {
+            tail = newNode;
+        } else {
             newNode.setNext(head);
             head = newNode;
         }
@@ -49,35 +52,46 @@ public class MySinglyLinkedList<T> {
     }
 
     public void insertAtIndex(int index, T data) throws NullPointerException {
-        Node newNode = new Node(data);
-        Node tempPointer = head;
+        Node<T> newNode = new Node<T>(data);
+        Node<T> tempPointer = head;
 
-        for (int x =0; x<index-1; x++) {
+        for (int x = 0; x < index - 1; x++) {
             tempPointer = tempPointer.getNext();
         }
-        newNode.setNext(tempPointer.getNext());
-        tempPointer.setNext(newNode);
+        if (tempPointer != head && tempPointer != tail) {
+            newNode.setNext(tempPointer.getNext());
+            tempPointer.setNext(newNode);
+        } else {
+            if (tempPointer == head) {
+                head = newNode;
+                newNode.setNext(tempPointer);
+            } else {
+                tail.setNext(newNode);
+                tail = newNode;
+            }
+        }
+
         nodesCount++;
     }
 
-    public Node get(int index) throws NullPointerException {
-        Node tempPointer = head;
-        for (int x = 0 ;x <index; x++) {
+    public Node<T> get(int index) throws NullPointerException {
+        Node<T> tempPointer = head;
+        for (int x = 0; x < index; x++) {
             tempPointer = tempPointer.getNext();
         }
         return tempPointer;
     }
 
     public void deleteHead() {
-        Node tempPointer = head.getNext();
+        Node<T> tempPointer = head.getNext();
         head.setNext(null);
         head = tempPointer;
         nodesCount--;
     }
 
     public void deleteTail() {
-        Node tempPointer = head;
-        for (int x=0;x<nodesCount-2;x++) {
+        Node<T> tempPointer = head;
+        for (int x = 0; x < nodesCount - 2; x++) {
             tempPointer = tempPointer.getNext();
         }
         tempPointer.setNext(null);
@@ -86,22 +100,40 @@ public class MySinglyLinkedList<T> {
     }
 
     public void deleteAtIndex(int index) throws NullPointerException {
-        Node previousPointer = head;
-        for (int x=0; x<index-1; x++)
+        Node<T> previousPointer = head;
+        for (int x = 0; x < index - 1; x++)
             previousPointer = previousPointer.getNext();
 
-        Node futurePointer = previousPointer.getNext();
+        Node<T> futurePointer = previousPointer.getNext();
         futurePointer = futurePointer.getNext();
         previousPointer.setNext(futurePointer);
         nodesCount--;
     }
 
+    void sortedInsert(T data) {
+        Node newNode = new Node(data,null);
+        Node current;
+        if (head == null || head.toString().compareToIgnoreCase(
+                newNode.toString()) >0) {
+            newNode.setNext(head);
+            head = newNode;
+        }
+        else {
+            current = head;
+            while (current.getNext() != null
+                    && current.getNext().toString().compareToIgnoreCase(
+                            newNode.toString())<=0) {
+                current = current.getNext();
+            }
+
+            newNode.setNext(current.getNext());
+            current.setNext(newNode);
+        }
+    }
+
 
     @Override
     public String toString() {
-        return "MySinglyLinkedList{" +
-                "\nhead=" + head +
-                ",\n\ntail=" + tail +
-                "\n}";
+        return "MySinglyLinkedList{ " + head.toString();
     }
 }
