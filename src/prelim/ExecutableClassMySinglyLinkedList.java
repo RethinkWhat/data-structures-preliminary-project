@@ -262,9 +262,9 @@ public class ExecutableClassMySinglyLinkedList {
          * Algorithm:
          *     1. Accept variables as a parameter
          *     2. Assign the passed in values to Bag class's variables
-         * @param type
-         * @param brand
-         * @param pockets
+         * @param type : String
+         * @param brand : String
+         * @param pockets : int
          */
         public Bag(String type, String brand, int pockets) {
             this.type = type;

@@ -43,11 +43,7 @@ public class DoublyLinkedNode<T> {
     }
 
     public String toString() {
-        return "DoublyLinkedNode Next {" +
-              //  "previous=" + previous +
-                "\n\t  data=" + data +
-                "\n\t  next=" + next +
-                "\n}";
+        return data.toString();
     }
 
 }
