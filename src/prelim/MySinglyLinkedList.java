@@ -4,6 +4,7 @@ public class MySinglyLinkedList<T> {
 
     private Node head;
     private Node tail;
+    private int nodesCount=0;
 
     public Node getHead() {
         return head;
@@ -21,7 +22,10 @@ public class MySinglyLinkedList<T> {
         this.tail = tail;
     }
 
-    public int nodesCount=0;
+
+    public int getNodesCount() {
+        return nodesCount;
+    }
 
     public void insertAtTail(T data) {
         Node newNode = new Node(data);
@@ -49,16 +53,29 @@ public class MySinglyLinkedList<T> {
     }
 
     public void insertAtIndex(int index, T data) throws NullPointerException {
-        Node newNode = new Node(data);
-        Node tempPointer = head;
+        Node<T> newNode = new Node<T>(data);
+        Node<T> tempPointer = head;
 
-        for (int x =0; x<index-1; x++) {
+        for (int x = 0; x < index - 1; x++) {
             tempPointer = tempPointer.getNext();
         }
-        newNode.setNext(tempPointer.getNext());
-        tempPointer.setNext(newNode);
-        nodesCount++;
+        System.out.println("THIS IS TEMP POINTER: " + tempPointer);
+
+        if (index == nodesCount)
+            insertAtTail(data);
+        else {
+            if (index == 0) {
+                insertAtHead(data);
+            } else {
+                Node after = tempPointer.getNext();
+                tempPointer.setNext(newNode);
+                newNode.setNext(after);
+                nodesCount++;
+            }
+        }
     }
+
+
 
     public Node get(int index) throws NullPointerException {
         Node tempPointer = head;

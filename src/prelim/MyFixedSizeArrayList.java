@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 
 public class MyFixedSizeArrayList implements MyList {
 
-    final private Object[] arrayObject = new Object[5];
+    final private Object[] arrayObject = new Object[5]; // The list can only have five objects thus the usage of final
     private int indexCount = 0;
 
     public int getSize() {

@@ -27,9 +27,6 @@ public class Node<T> {
 
     @Override
     public String toString() {
-        return "\n\tNode{" +
-                "data=" + data +
-                ", next=" + next +
-                "}";
+        return data.toString();
     }
 }
