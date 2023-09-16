@@ -472,11 +472,11 @@ public class ExecutableClassMySinglyLinkedList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, bagList.getNodesCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, bagList.getSize(),"Enter index: ", indexDoesNotExist);
         Bag newBag = requestBag();
         switch (choice) {
             case 1 -> bagList.insertAtHead(newBag);
-            case 2 -> bagList.insertAtTail(newBag);
+            case 2 -> bagList.insert(newBag);
             case 3 -> bagList.insertAtIndex(index,newBag);
         }
     }
@@ -555,7 +555,7 @@ public class ExecutableClassMySinglyLinkedList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, bagList.getNodesCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, bagList.getSize(),"Enter index: ", indexDoesNotExist);
         switch (choice) {
             case 1 -> bagList.deleteHead();
             case 2 -> bagList.deleteTail();
@@ -570,8 +570,8 @@ public class ExecutableClassMySinglyLinkedList {
      *      2. Insert the index specified to the get method of bagList and display the returned bag to user.
      */
     public static void getObject()  {
-        if ( bagList.getNodesCount() !=0) {
-            int choice = enterChoice(0, bagList.getNodesCount() - 1, "Enter the index of the bag you would like to get: ", invalidNumber);
+        if ( bagList.getSize() !=0) {
+            int choice = enterChoice(0, bagList.getSize() - 1, "Enter the index of the bag you would like to get: ", invalidNumber);
             System.out.println(bagList.get(choice));
         } else {
             System.out.println("There are no bags in the list.");
@@ -595,7 +595,7 @@ public class ExecutableClassMySinglyLinkedList {
      *      1. Create a for loop to iterate through all bags in the list and display each of them to user.
      */
     public static void showBags() {
-        for (int x = 0; x<bagList.getNodesCount(); x++)
+        for (int x = 0; x<bagList.getSize(); x++)
             System.out.println((x+1) + ". " + bagList.get(x));
     }
 

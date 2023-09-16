@@ -6,12 +6,14 @@
 
 package prelim;
 
-public class MySinglyLinkedList<T> {
+import java.util.NoSuchElementException;
+
+public class MySinglyLinkedList<T> implements MyList<T> {
 
     // Declare class variables
     private Node<T> head;
     private Node<T> tail;
-    private int nodesCount=0;
+    private int size=0;
 
     /**
      * Method to get the Node currently set as the head
@@ -50,8 +52,8 @@ public class MySinglyLinkedList<T> {
      * Method to get the Number of nodes in the linked list
      * @return nodesCount
      */
-    public int getNodesCount() {
-        return nodesCount;
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -64,7 +66,7 @@ public class MySinglyLinkedList<T> {
      *      5. Increment the nodesCount variable
      * @param data : T
      */
-    public void insertAtTail(T data) {
+    public void insert(T data) {
         Node<T> newNode = new Node<T>(data);
         if (head==null) {
             head = newNode;
@@ -73,7 +75,78 @@ public class MySinglyLinkedList<T> {
             tail.setNext(newNode);
         }
         tail = newNode;
-        nodesCount++;
+        size++;
+    }
+
+    /**
+     * Method to get element given a passed in data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return the data
+     *          2.2 Have tempPointer equal to the next node in the list
+     *      3. If for loop is exited  throw NoSuchElementException
+     * @param data :T
+     * @return
+     * @throws NoSuchElementException
+     */
+    @Override
+    public T getElement(T data) throws NoSuchElementException {
+        Node<T> tempPointer = head;
+        for (int x=0; x<size; x++) {
+            if(tempPointer.getData()==data)
+                return tempPointer.getData();
+            tempPointer = tempPointer.getNext();
+        }
+        throw new NoSuchElementException();
+    }
+
+    /**
+     * Method to delete an object given a passed in datum
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data
+     *                  2.2. Call deleteAtIndex method and pass in x
+     *                  2.3. Return true
+     *          2.2. Set temNode equal to next node in list
+     *      3. If for loop is exited return false
+     * @param data : T
+     * @return deleteConfirmation
+     */
+    @Override
+    public boolean delete(T data) {
+        Node<T> tempNode = head;
+        for (int x=0; x<size; x++) {
+            if(tempNode.getData() == data) {
+                deleteAtIndex(x);
+                return true;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return false;
+    }
+
+    /**
+     * Method to search for object index given data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return x
+     *      3. Have temp Pointer object equal next node in list
+     *      4. Return -1 if object exits for loops
+     * @param data : T
+     * @return index
+     */
+    @Override
+    public int search(T data) {
+        Node<T> tempPointer = head;
+        for (int x = 0; x<size; x++) {
+            if (tempPointer.getData() == data)
+                return x;
+            tempPointer = tempPointer.getNext();
+        }
+        return -1;
     }
 
     /**
@@ -95,7 +168,7 @@ public class MySinglyLinkedList<T> {
             newNode.setNext(head);
             head = newNode;
         }
-        nodesCount++;
+        size++;
     }
 
     /**
@@ -123,8 +196,8 @@ public class MySinglyLinkedList<T> {
             tempPointer = tempPointer.getNext();
         }
 
-        if (index == nodesCount)
-            insertAtTail(data);
+        if (index == size)
+            insert(data);
         else {
             if (index == 0) {
                 insertAtHead(data);
@@ -132,7 +205,7 @@ public class MySinglyLinkedList<T> {
                 Node<T> after = tempPointer.getNext();
                 tempPointer.setNext(newNode);
                 newNode.setNext(after);
-                nodesCount++;
+                size++;
             }
         }
     }
@@ -156,6 +229,14 @@ public class MySinglyLinkedList<T> {
         return tempPointer;
     }
 
+    public Node<T> get(T Node) throws NullPointerException {
+        Node<T> tempPointer = head;
+        for (int x = 0 ;x <size; x++) {
+            tempPointer = tempPointer.getNext();
+        }
+        return tempPointer;
+    }
+
     /**
      * Method to delete the node which is currently the head
      * Algorithm:
@@ -168,7 +249,7 @@ public class MySinglyLinkedList<T> {
         Node<T> tempPointer = head.getNext();
         head.setNext(null);
         head = tempPointer;
-        nodesCount--;
+        size--;
     }
 
     /**
@@ -183,12 +264,12 @@ public class MySinglyLinkedList<T> {
      */
     public void deleteTail() {
         Node<T> tempPointer = head;
-        for (int x=0;x<nodesCount-2;x++) {
+        for (int x=0;x<size-2;x++) {
             tempPointer = tempPointer.getNext();
         }
         tempPointer.setNext(null);
         tail = tempPointer;
-        nodesCount--;
+        size--;
     }
 
     /**
@@ -209,7 +290,7 @@ public class MySinglyLinkedList<T> {
         Node<T> previousPointer = head;
         if (index==0)
             deleteHead();
-        else if (index == nodesCount-1)
+        else if (index == size-1)
             deleteTail();
         else {
             for (int x = 0; x < index - 1; x++)
@@ -218,7 +299,7 @@ public class MySinglyLinkedList<T> {
             Node<T> futurePointer = previousPointer.getNext();
             futurePointer = futurePointer.getNext();
             previousPointer.setNext(futurePointer);
-            nodesCount--;
+            size--;
         }
     }
 

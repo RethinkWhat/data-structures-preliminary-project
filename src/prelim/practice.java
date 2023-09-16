@@ -2,14 +2,18 @@ package prelim;
 
 public class practice {
     public static void main(String[] args) {
-        MyDoublyLinkedList list =  new MyDoublyLinkedList();
-        list.insertAtTail(6);
-        list.insertAtTail(7);
-        list.insertAtTail(8);
-        list.insertAtTail(9);
-        list.insertAtTail(69);
-        //list.insertAtIndex(4,100);
-        list.deleteAtIndex(4);
-        System.out.println(list);
+        MySinglyLinkedList list =  new MySinglyLinkedList();
+        list.insert(6);
+        list.insert(7);
+        list.insert(8);
+        list.insert("Fire");
+        list.insert(69);
+        //list.insertAtIndex(4,100);;
+       // boolean done = list.delete("Fire");
+
+        for (int x =0 ;x <list.getSize(); x++) {
+            System.out.println(list.get(x));
+        }
+        System.out.println("Search: " + list.search("Fire"));
     }
 }
