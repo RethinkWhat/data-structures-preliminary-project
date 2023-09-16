@@ -3,6 +3,215 @@
  * Date: September 15, 2023,
  * Name of Project: Prelim Programming Exercises
  * Sample Run:
+ *
+ * ------------------------------------------------------------------------
+ *                              Doubly Linked List
+ * ------------------------------------------------------------------------
+ * 	This program allows a user to keep track of a list of shirts, accepting
+ * 	information like its type, color and whether it has stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a shirt at head.
+ *     2. Add a shirt at tail.
+ *     3. Add a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ *   Enter the type of shirt: v neck
+ *   Enter the color of the shirt: white
+ *   Is the shirt striped? Y/N : y
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, white, has stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a shirt at head.
+ *     2. Add a shirt at tail.
+ *     3. Add a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ *   Enter the type of shirt: round neck
+ *   Enter the color of the shirt: brown
+ *   Is the shirt striped? Y/N : n
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, white, has stripes.
+ * 2. round neck, brown, does not have stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a shirt at head.
+ *     2. Add a shirt at tail.
+ *     3. Add a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter index: 1
+ *   Enter the type of shirt: longsleeve
+ *   Enter the color of the shirt: orange
+ *   Is the shirt striped? Y/N : n
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, white, has stripes.
+ * 2. longsleeve, orange, does not have stripes.
+ * 3. round neck, brown, does not have stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter the index of the number you would like to get: 1
+ * longsleeve, orange, does not have stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *     1. Delete shirt at head.
+ *     2. Delete shirt at tail.
+ *     3. Delete a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter index: 1
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, white, has stripes.
+ * 2. round neck, brown, does not have stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a shirt at head.
+ *     2. Add a shirt at tail.
+ *     3. Add a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ *   Enter the type of shirt: v neck
+ *   Enter the color of the shirt: blue
+ *   Is the shirt striped? Y/N : y
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, blue, has stripes.
+ * 2. v neck, white, has stripes.
+ * 3. round neck, brown, does not have stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *     1. Delete shirt at head.
+ *     2. Delete shirt at tail.
+ *     3. Delete a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, white, has stripes.
+ * 2. round neck, brown, does not have stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *     1. Delete shirt at head.
+ *     2. Delete shirt at tail.
+ *     3. Delete a shirt at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. v neck, white, has stripes.
+ * ------------------------------------------------------------------------
+ *      1. Add a shirt to the list.
+ *      2. Delete a shirt from the list.
+ *      3. Get a shirt from the list.
+ *      4. Display all shirts in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 5
+ * Thank you for using the program!
+ *
+ * Process finished with exit code 0
  */
 package prelim;
 import java.util.Scanner;
@@ -284,6 +493,7 @@ public class ExecutableClassMyDoublyLinkedList {
             input = keyboard.nextLine();
             if (input.equalsIgnoreCase("Y")) {
                 condition = true;
+                stripes = true;
             }
             else if (input.equalsIgnoreCase("N")) {
                 condition = true;

@@ -62,7 +62,6 @@ public class MyDoublyLinkedList<T> {
                 tempPointer = tempPointer.getNext();
         }
         if (index==0) {
-            System.out.println("THIS IS TEMPPOINTER: " + tempPointer);
             insertAtHead(data);
         } else if (tempPointer == tail) {
             insertAtTail(data);
@@ -112,14 +111,20 @@ public class MyDoublyLinkedList<T> {
         for (int x = 0; x<index-1;x++) {
             tempPointer = tempPointer.getNext();
         }
-        DoublyLinkedNode<T> middle = tempPointer.getNext();
-        DoublyLinkedNode<T> after = middle.getNext();
-        tempPointer.setNext(after);
-        if (after!= null)
-            after.setPrevious(tempPointer);
-        middle.setPrevious(null);
-        middle.setNext(null);
-        nodeCount--;
+        if (index ==0)
+            deleteAtHead();
+        else if (index ==nodeCount-1)
+            deleteAtTail();
+        else {
+            DoublyLinkedNode<T> middle = tempPointer.getNext();
+            DoublyLinkedNode<T> after = middle.getNext();
+            tempPointer.setNext(after);
+            if (after != null)
+                after.setPrevious(tempPointer);
+            middle.setPrevious(null);
+            middle.setNext(null);
+            nodeCount--;
+        }
     }
 
 
