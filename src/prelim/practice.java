@@ -2,14 +2,14 @@ package prelim;
 
 public class practice {
     public static void main(String[] args) {
-        MySinglyLinkedCircularList list =  new MySinglyLinkedCircularList();
+        MyDoublyLinkedCircularList list =  new MyDoublyLinkedCircularList();
         list.insert(6);
         list.insert(7);
         list.insert(8);
         list.insert("Fire");
         list.insert(69);
         //list.insertAtIndex(4,100);;
-       // boolean done = list.delete("Fire");
+        boolean done = list.delete("Fire");
 
         for (int x =0 ;x <list.getSize(); x++) {
             System.out.println(list.get(x));

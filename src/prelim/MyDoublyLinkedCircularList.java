@@ -1,18 +1,19 @@
 package prelim;
 
+import java.util.NoSuchElementException;
 import java.util.function.DoublePredicate;
 
 /**
  * Class for a Circular Linked List
  * @param <T>
  */
-public class MyDoublyLinkedCircularList<T> {
+public class MyDoublyLinkedCircularList<T> implements MyList<T> {
 
     /** Class Variables */
     private DoublyLinkedNode<T> head;
     private DoublyLinkedNode<T> tail;
 
-    private int nodeCount = 0; // Variable to hold the total nodes in the linked list
+    private int size = 0; // Variable to hold the total nodes in the linked list
 
 
     /**
@@ -35,8 +36,8 @@ public class MyDoublyLinkedCircularList<T> {
      * Method to get the total node count
      * @return nodeCount
      */
-    public int getNodeCount() {
-        return nodeCount;
+    public int getSize() {
+        return size;
     }
 
     /**
@@ -75,6 +76,78 @@ public class MyDoublyLinkedCircularList<T> {
         return null;
     }
 
+
+    /**
+     * Method to get element given a passed in data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return the data
+     *          2.2 Have tempPointer equal to the next node in the list
+     *      3. If for loop is exited  throw NoSuchElementException
+     * @param data :T
+     * @return
+     * @throws NoSuchElementException
+     */
+    @Override
+    public T getElement(T data) throws NoSuchElementException {
+        DoublyLinkedNode<T> tempPointer = head;
+        for (int x=0; x<size; x++) {
+            if(tempPointer.getData()==data)
+                return tempPointer.getData();
+            tempPointer = tempPointer.getNext();
+        }
+        throw new NoSuchElementException();
+    }
+
+    /**
+     * Method to delete an object given a passed in datum
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data
+     *                  2.2. Call deleteAtIndex method and pass in x
+     *                  2.3. Return true
+     *          2.2. Set temNode equal to next node in list
+     *      3. If for loop is exited return false
+     * @param data : T
+     * @return deleteConfirmation
+     */
+    @Override
+    public boolean delete(T data) {
+        DoublyLinkedNode<T> tempNode = head;
+        for (int x=0; x<size; x++) {
+            if(tempNode.getData() == data) {
+                deleteAtIndex(x);
+                return true;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return false;
+    }
+
+    /**
+     * Method to search for object index given data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return x
+     *      3. Have temp Pointer object equal next node in list
+     *      4. Return -1 if object exits for loops
+     * @param data : T
+     * @return index
+     */
+    @Override
+    public int search(T data) {
+        DoublyLinkedNode<T> tempPointer = head;
+        for (int x = 0; x<size; x++) {
+            if (tempPointer.getData() == data)
+                return x;
+            tempPointer = tempPointer.getNext();
+        }
+        return -1;
+    }
+
     /**
      * Method to add a node at head
      * Algorithm:
@@ -102,9 +175,10 @@ public class MyDoublyLinkedCircularList<T> {
             head.setPrevious(tail);
             tail.setNext(head);
         }
-        nodeCount++;
+        size++;
     }
 
+    @Override
     /**
      * Method to add a node at tail
      * Algorithm:
@@ -119,7 +193,7 @@ public class MyDoublyLinkedCircularList<T> {
      *      4. Increment the node count
      * @param data : T
      */
-    public void addAtTail(T data) {
+    public void insert(T data) {
         DoublyLinkedNode<T> newNode = new DoublyLinkedNode<T>(data);
         if (head == null) {
             head = newNode;
@@ -131,7 +205,7 @@ public class MyDoublyLinkedCircularList<T> {
             head.setPrevious(newNode);
             tail = newNode;
         }
-        nodeCount++;
+        size++;
     }
 
     /**
@@ -157,8 +231,8 @@ public class MyDoublyLinkedCircularList<T> {
         DoublyLinkedNode<T> newNode = new DoublyLinkedNode<T>(data);
         if (index == 0) {
             addAtHead(data);
-        } else if (index == nodeCount)
-            addAtTail(data);
+        } else if (index == size)
+            insert(data);
         else {
             DoublyLinkedNode<T> tempPointer = head;
             for (int x = 0; x < index - 1; x++) {
@@ -169,7 +243,7 @@ public class MyDoublyLinkedCircularList<T> {
             newNode.setPrevious(tempPointer);
             newNode.setNext(after);
             after.setPrevious(newNode);
-            nodeCount++;
+            size++;
         }
     }
 
@@ -192,7 +266,7 @@ public class MyDoublyLinkedCircularList<T> {
         head.setNext(null);
         head.setPrevious(null);
         head = tempPointer;
-        nodeCount--;
+        size--;
     }
 
     /**
@@ -218,7 +292,7 @@ public class MyDoublyLinkedCircularList<T> {
         tail.setPrevious(null);
         tail.setNext(null);
         tail = newTail;
-        nodeCount--;
+        size--;
     }
 
     /**
@@ -243,7 +317,7 @@ public class MyDoublyLinkedCircularList<T> {
 
         if (index == 0)
             deleteHead();
-        if (index == nodeCount - 1)
+        if (index == size - 1)
             deleteTail();
         else {
             DoublyLinkedNode<T> tempPointer = head;
@@ -255,7 +329,7 @@ public class MyDoublyLinkedCircularList<T> {
             toDelete.setPrevious(null);
             toDelete.setNext(null);
             after.setPrevious(tempPointer);
-            nodeCount--;
+            size--;
         }
 
     }

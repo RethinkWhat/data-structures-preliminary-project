@@ -452,11 +452,11 @@ public class ExecutableClassMyDoublyLinkedCircularList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, laptopList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, laptopList.getSize(),"Enter index: ", indexDoesNotExist);
         Laptop newLaptop = requestLaptop();
         switch (choice) {
             case 1 -> laptopList.addAtHead(newLaptop);
-            case 2 -> laptopList.addAtTail(newLaptop);
+            case 2 -> laptopList.insert(newLaptop);
             case 3 -> laptopList.addAtIndex(index,newLaptop);
         }
     }
@@ -539,7 +539,7 @@ public class ExecutableClassMyDoublyLinkedCircularList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, laptopList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, laptopList.getSize(),"Enter index: ", indexDoesNotExist);
         switch (choice) {
             case 1 -> laptopList.deleteHead();
             case 2 -> laptopList.deleteTail();
@@ -554,8 +554,8 @@ public class ExecutableClassMyDoublyLinkedCircularList {
      *      2. Insert the index specified to the get method of laptopList and display the returned laptop to user.
      */
     public static void getObject()  {
-        if ( laptopList.getNodeCount() !=0) {
-            int choice = enterChoice(0, laptopList.getNodeCount() - 1, "Enter the index of the laptop you would like to get: ", invalidNumber);
+        if ( laptopList.getSize() !=0) {
+            int choice = enterChoice(0, laptopList.getSize() - 1, "Enter the index of the laptop you would like to get: ", invalidNumber);
             System.out.println(laptopList.get(choice));
         } else {
             System.out.println("There are no laptops in the list.");
@@ -579,7 +579,7 @@ public class ExecutableClassMyDoublyLinkedCircularList {
      *      1. Create a for loop to iterate through all Laptops in the list and display each of them to user.
      */
     public static void showLaptops() {
-        for (int x = 0; x<laptopList.getNodeCount(); x++)
+        for (int x = 0; x<laptopList.getSize(); x++)
             System.out.println((x+1) + ". " + laptopList.get(x));
     }
 
