@@ -240,10 +240,10 @@ public class ExecutableClassMyDoublyLinkedList {
         }
 
         /**
-         * Constructor for bag
+         * Constructor for Shirt
          * Algorithm:
          *     1. Accept variables as a parameter
-         *     2. Assign the passed in values to Bag class's variables
+         *     2. Assign the passed in values to Shirt class's variables
          * @param type : String
          * @param color : String
          * @param stripes : boolean
@@ -255,7 +255,7 @@ public class ExecutableClassMyDoublyLinkedList {
         }
 
         /**
-         * Return the type of bag
+         * Return the type of Shirt
          * @return type
          */
         public String getType() {
@@ -263,23 +263,23 @@ public class ExecutableClassMyDoublyLinkedList {
         }
 
         /**
-         * Returns the brand of the bag
-         * @return brand
+         * Returns the color of the Shirt
+         * @return color
          */
         public String getColor() {
             return color;
         }
 
         /**
-         * Returns the number of pockets of the bag
-         * @return pockets
+         * Returns if the Shirt has color
+         * @return stripes
          */
         public boolean getStripes() {
             return stripes;
         }
 
         /**
-         * Set the type of the bag
+         * Set the type of the Shirt
          * @param type : String
          */
         public void setType(String type) {
@@ -287,7 +287,7 @@ public class ExecutableClassMyDoublyLinkedList {
         }
 
         /**
-         * Set the brand of the bag
+         * Set the color of the shirt
          * @param color : String
          */
         public void setColor(String color) {
@@ -295,7 +295,7 @@ public class ExecutableClassMyDoublyLinkedList {
         }
 
         /**
-         * Set the number of pockets of the bag
+         * Set whether the shirt has stripes
          * @param stripes : boolean
          */
         public void setStripes(boolean stripes) {
@@ -303,8 +303,8 @@ public class ExecutableClassMyDoublyLinkedList {
         }
 
         /**
-         * Returns the Bag object in string representations
-         * @return brand, type, pockets.
+         * Returns the Shirt object in string representations
+         * @return type, color, and stripes
          */
         public String toString() {
             String message = "";
@@ -318,10 +318,10 @@ public class ExecutableClassMyDoublyLinkedList {
 
 
     static Scanner keyboard = new Scanner(System.in);                       // Scanner object to be used to accept user int
-    static MyDoublyLinkedList<Shirt> shirtList = new MyDoublyLinkedList<>(); // Create a MySinglyLinkedList to hold all the bags
+    static MyDoublyLinkedList<Shirt> shirtList = new MyDoublyLinkedList<>(); // Create a MyDoublyLinkedList obj to hold all the shirts
 
     static String invalidNumber = "Enter a valid number.";                  // Error message for when an invalid number is passed in
-    static String indexDoesNotExist = "There is no room for the bag " +     // Error message for when the index does not exist
+    static String indexDoesNotExist = "There is no room for the shirt " +     // Error message for when the index does not exist
             "at that index";
 
     /**
@@ -362,7 +362,7 @@ public class ExecutableClassMyDoublyLinkedList {
             try {
                 logicMenu();
             } catch (NullPointerException ex) {
-                System.out.println("There are no bags in the list.");
+                System.out.println("There are no shirts in the list.");
             }
         } while (true);
     }
@@ -377,7 +377,7 @@ public class ExecutableClassMyDoublyLinkedList {
      *              - Add an object
      *              - delete an object
      *              - get an object
-     *              - show all bags
+     *              - show all shirts
      *              - quit program
      */
     public static void logicMenu(){
@@ -445,10 +445,10 @@ public class ExecutableClassMyDoublyLinkedList {
      * Method to handle logic for adding an object
      * Algorithm:
      *      1. Call the showAddMenu method
-     *      2. Use enterChoice method to get user input for where they would like to input new bag in the list
+     *      2. Use enterChoice method to get user input for where they would like to input new shirt in the list
      *      3. Create an int object to hold possible index (if user chooses to add at an index)
      *      4. If user chooses to add at an index request index from user using Scanner object
-     *      5. Call the requestBag method to request Bag details from user
+     *      5. Call the requestShirt method to request Shirt details from user
      *      6. Create a switch statement to handle user's choice of where to add
      *          6.1. call insertAtHead method if user choice == 1
      *          6.2. call insertAtTail method if user choice == 2
@@ -469,20 +469,19 @@ public class ExecutableClassMyDoublyLinkedList {
     }
 
     /**
-     * Method to handle asking user to enter Bag details
-     * @return Bag
+     * Method to handle asking user to enter Shirt details
+     * @return Shirt
      * Algorithm:
-     *      1. Have user enter the type of bag and accept user input
-     *      2. Have user enter the brand of bag and accept user input
+     *      1. Have user enter the type of Shirt and accept user input
+     *      2. Have user enter the color of Shirt and accept user input
      *      3. Create a boolean variable
-     *      4. Wrap a do-while statement outside a try and catch statement for requesting  number of pockets from
-     *      user such that even when the user inputs a String by accident the program will not come to a halt due
-     *      to the error.
-     *      5. Create a new Bag object from passed in Bag information and return it
+     *      4. Wrap a do-while statement outside a prompt, and a request from user to enter whether
+     *      the shirt has stripes. The do while statement will assure that user input is indeed true or false.
+     *      5. Create a new Shirt object from passed in Shirt information and return it
      */
     public static Shirt requestShirt() {
         System.out.print("  Enter the type of shirt: ");
-        String bagType = keyboard.nextLine();
+        String shirtType = keyboard.nextLine();
         System.out.print("  Enter the color of the shirt: ");
         String color = keyboard.nextLine();
         boolean condition = false;
@@ -501,13 +500,13 @@ public class ExecutableClassMyDoublyLinkedList {
             if (!condition)
                 System.out.println("Please enter either Y or N.");
         } while (!condition);
-        return new Shirt(bagType, color, stripes);
+        return new Shirt(shirtType, color, stripes);
     }
 
     /**
-     * Method to show the options for where to add a bag
+     * Method to show the options for where to add a Shirt
      * Algorithm:
-     *      1. Make use of println to show all the possible ways to add a bag to the Bag List
+     *      1. Make use of println to show all the possible ways to add a Shirt to the Shirt List
      */
     public static void showAddMenu(){
         System.out.println("------------------------------------------------------------------------");
@@ -518,9 +517,9 @@ public class ExecutableClassMyDoublyLinkedList {
     }
 
     /**
-     * Method to show the options for which bag to delete
+     * Method to show the options for which Shirt to delete
      * Algorithm:
-     *      1. Make use of println to show all the possible options to deleting a bag in Bag list.
+     *      1. Make use of println to show all the possible options to deleting a Shirt in Shirt list.
      */
     public static void showDeleteMenu(){
         System.out.println("------------------------------------------------------------------------");
@@ -559,14 +558,14 @@ public class ExecutableClassMyDoublyLinkedList {
      * Method to handle getting an object from the list
      * Algorithm:
      *      1. Request an index from user using the enterChoice method
-     *      2. Insert the index specified to the get method of bagList and display the returned bag to user.
+     *      2. Insert the index specified to the get method of shirtList and display the returned shirt to user.
      */
     public static void getObject()  {
         if ( shirtList.getNodeCount() !=0) {
-            int choice = enterChoice(0, shirtList.getNodeCount() - 1, "Enter the index of the number you would like to get: ", invalidNumber);
+            int choice = enterChoice(0, shirtList.getNodeCount() - 1, "Enter the index of the shirt you would like to get: ", invalidNumber);
             System.out.println(shirtList.get(choice));
         } else {
-            System.out.println("There are no bags in the list.");
+            System.out.println("There are no shirts in the list.");
         }
     }
 
@@ -582,9 +581,9 @@ public class ExecutableClassMyDoublyLinkedList {
     }
 
     /**
-     * Method to handle showing all bags in list to user
+     * Method to handle showing all shirt in list to user
      * Algorithm:
-     *      1. Create a for loop to iterate through all bags in the list and display each of them to user.
+     *      1. Create a for loop to iterate through all Shirts in the list and display each of them to user.
      */
     public static void showShirts() {
         for (int x = 0; x<shirtList.getNodeCount(); x++)

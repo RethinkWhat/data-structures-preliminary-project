@@ -571,7 +571,7 @@ public class ExecutableClassMySinglyLinkedList {
      */
     public static void getObject()  {
         if ( bagList.getNodesCount() !=0) {
-            int choice = enterChoice(0, bagList.getNodesCount() - 1, "Enter the index of the number you would like to get: ", invalidNumber);
+            int choice = enterChoice(0, bagList.getNodesCount() - 1, "Enter the index of the bag you would like to get: ", invalidNumber);
             System.out.println(bagList.get(choice));
         } else {
             System.out.println("There are no bags in the list.");
