@@ -1,6 +1,12 @@
+/**
+ * Name and SLU ID Number: TANK, Rithik | 2233293
+ * Date: September 15, 2023,
+ * Name of Project: Prelim Programming Exercises
+ */
 package prelim;
 import java.util.NoSuchElementException;
 
+/** List Interface */
 public interface MyList<E>{
     public int getSize();
     public void insert(E data) throws ListOverflowException;

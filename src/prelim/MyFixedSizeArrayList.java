@@ -1,3 +1,8 @@
+/**
+ * Name and SLU ID Number: TANK, Rithik | 2233293
+ * Date: September 15, 2023,
+ * Name of Project: Prelim Programming Exercises
+ */
 package prelim;
 
 import java.util.Arrays;
