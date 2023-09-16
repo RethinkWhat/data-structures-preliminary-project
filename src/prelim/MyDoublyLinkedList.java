@@ -1,10 +1,12 @@
 package prelim;
 
+import java.util.NoSuchElementException;
+
 /**
  * Class for Doubly Linked List
  * @param <T>
  */
-public class MyDoublyLinkedList<T> {
+public class MyDoublyLinkedList<T> implements MyList<T>{
 
     /**
      * Class variables
@@ -13,7 +15,7 @@ public class MyDoublyLinkedList<T> {
     private DoublyLinkedNode<T> tail;
 
     // Variable to hold the number of nodes in the doubly linked list
-    private int nodeCount = 0;
+    private int size = 0;
 
     /**
      * Method to get the head
@@ -47,14 +49,89 @@ public class MyDoublyLinkedList<T> {
         this.tail = tail;
     }
 
+    @Override
     /**
      * Method to get the node count
      * @return nodeCount
      */
-    public int getNodeCount() {
-        return nodeCount;
+    public int getSize() {
+        return size;
     }
 
+
+    /**
+     * Method to get element given a passed in data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return the data
+     *          2.2 Have tempPointer equal to the next node in the list
+     *      3. If for loop is exited  throw NoSuchElementException
+     * @param data :T
+     * @return
+     * @throws NoSuchElementException
+     */
+    @Override
+    public T getElement(T data) throws NoSuchElementException {
+        DoublyLinkedNode<T> tempPointer = head;
+        for (int x=0; x<size; x++) {
+            if(tempPointer.getData()==data)
+                return tempPointer.getData();
+            tempPointer = tempPointer.getNext();
+        }
+        throw new NoSuchElementException();
+    }
+
+    /**
+     * Method to delete an object given a passed in datum
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data
+     *                  2.2. Call deleteAtIndex method and pass in x
+     *                  2.3. Return true
+     *          2.2. Set temNode equal to next node in list
+     *      3. If for loop is exited return false
+     * @param data : T
+     * @return deleteConfirmation
+     */
+    @Override
+    public boolean delete(T data) {
+        DoublyLinkedNode<T> tempNode = head;
+        for (int x=0; x<size; x++) {
+            if(tempNode.getData() == data) {
+                deleteAtIndex(x);
+                return true;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return false;
+    }
+
+    /**
+     * Method to search for object index given data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return x
+     *      3. Have temp Pointer object equal next node in list
+     *      4. Return -1 if object exits for loops
+     * @param data : T
+     * @return index
+     */
+    @Override
+    public int search(T data) {
+        DoublyLinkedNode<T> tempPointer = head;
+        for (int x = 0; x<size; x++) {
+            if (tempPointer.getData() == data)
+                return x;
+            tempPointer = tempPointer.getNext();
+        }
+        return -1;
+    }
+
+
+    @Override
     /**
      * Method to insert at tail
      * Algorithm:
@@ -66,7 +143,7 @@ public class MyDoublyLinkedList<T> {
      *      5. Increment node count
      * @param data : T
      */
-    public void insertAtTail(T data) {
+    public void insert(T data) {
         DoublyLinkedNode<T> newNode = new DoublyLinkedNode<T>(data);
         if (head == null) {
             head = newNode;
@@ -75,7 +152,7 @@ public class MyDoublyLinkedList<T> {
             newNode.setPrevious(tail);
         }
         tail = newNode;
-        nodeCount++;
+        size++;
     }
 
     /**
@@ -98,7 +175,7 @@ public class MyDoublyLinkedList<T> {
             head.setPrevious(newNode);
         }
         head = newNode;
-        nodeCount++;
+        size++;
     }
 
     /**
@@ -127,7 +204,7 @@ public class MyDoublyLinkedList<T> {
         if (index == 0) {
             insertAtHead(data);
         } else if (tempPointer == tail) {
-            insertAtTail(data);
+            insert(data);
         } else {
             DoublyLinkedNode<T> after;
             after = tempPointer.getNext();
@@ -138,7 +215,7 @@ public class MyDoublyLinkedList<T> {
             newNode.setNext(after);
 
             after.setPrevious(newNode);
-            nodeCount++;
+            size++;
         }
     }
 
@@ -172,13 +249,13 @@ public class MyDoublyLinkedList<T> {
      */
     public void deleteAtTail() throws NullPointerException {
         DoublyLinkedNode<T> tempPointer = head;
-        for (int x = 0; x < nodeCount-2; x++) {
+        for (int x = 0; x < size-2; x++) {
             tempPointer = tempPointer.getNext();
         }
         tempPointer.setNext(null);
         tail.setPrevious(null);
         tail = tempPointer;
-        nodeCount--;
+        size--;
     }
 
     /**
@@ -196,7 +273,7 @@ public class MyDoublyLinkedList<T> {
         head.setNext(null);
         tempPointer.setPrevious(null);
         head = tempPointer;
-        nodeCount--;
+        size--;
     }
 
     /**
@@ -221,7 +298,7 @@ public class MyDoublyLinkedList<T> {
         }
         if (index ==0)
             deleteAtHead();
-        else if (index ==nodeCount-1)
+        else if (index ==size-1)
             deleteAtTail();
         else {
             DoublyLinkedNode<T> middle = tempPointer.getNext();
@@ -230,14 +307,14 @@ public class MyDoublyLinkedList<T> {
             after.setPrevious(tempPointer);
             middle.setPrevious(null);
             middle.setNext(null);
-            nodeCount--;
+            size--;
         }
     }
 
 
     /**
      * Method to return the list in string form
-     * @return
+     * @return String
      */
     @Override
     public String toString() {

@@ -459,11 +459,11 @@ public class ExecutableClassMyDoublyLinkedList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, shirtList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, shirtList.getSize(),"Enter index: ", indexDoesNotExist);
         Shirt newShirt = requestShirt();
         switch (choice) {
             case 1 -> shirtList.insertAtHead(newShirt);
-            case 2 -> shirtList.insertAtTail(newShirt);
+            case 2 -> shirtList.insert(newShirt);
             case 3 -> shirtList.insertAtIndex(index,newShirt);
         }
     }
@@ -546,7 +546,7 @@ public class ExecutableClassMyDoublyLinkedList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, shirtList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, shirtList.getSize(),"Enter index: ", indexDoesNotExist);
         switch (choice) {
             case 1 -> shirtList.deleteAtHead();
             case 2 -> shirtList.deleteAtTail();
@@ -561,8 +561,8 @@ public class ExecutableClassMyDoublyLinkedList {
      *      2. Insert the index specified to the get method of shirtList and display the returned shirt to user.
      */
     public static void getObject()  {
-        if ( shirtList.getNodeCount() !=0) {
-            int choice = enterChoice(0, shirtList.getNodeCount() - 1, "Enter the index of the shirt you would like to get: ", invalidNumber);
+        if ( shirtList.getSize() !=0) {
+            int choice = enterChoice(0, shirtList.getSize() - 1, "Enter the index of the shirt you would like to get: ", invalidNumber);
             System.out.println(shirtList.get(choice));
         } else {
             System.out.println("There are no shirts in the list.");
@@ -586,7 +586,7 @@ public class ExecutableClassMyDoublyLinkedList {
      *      1. Create a for loop to iterate through all Shirts in the list and display each of them to user.
      */
     public static void showShirts() {
-        for (int x = 0; x<shirtList.getNodeCount(); x++)
+        for (int x = 0; x<shirtList.getSize(); x++)
             System.out.println((x+1) + ". " + shirtList.get(x));
     }
 
