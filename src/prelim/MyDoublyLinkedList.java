@@ -61,11 +61,9 @@ public class MyDoublyLinkedList<T> {
             for (int x = 0; x < index - 1; x++)
                 tempPointer = tempPointer.getNext();
         }
-
-        if (tempPointer.getPrevious() == null) {
+        if (index==0) {
+            System.out.println("THIS IS TEMPPOINTER: " + tempPointer);
             insertAtHead(data);
-            head = tempPointer.getPrevious();
-            System.out.println("CALLED");
         } else if (tempPointer == tail) {
             insertAtTail(data);
         } else {

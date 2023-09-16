@@ -207,13 +207,19 @@ public class MySinglyLinkedList<T> {
      */
     public void deleteAtIndex(int index) throws NullPointerException {
         Node<T> previousPointer = head;
-        for (int x=0; x<index-1; x++)
-            previousPointer = previousPointer.getNext();
+        if (index==0)
+            deleteHead();
+        else if (index == nodesCount-1)
+            deleteTail();
+        else {
+            for (int x = 0; x < index - 1; x++)
+                previousPointer = previousPointer.getNext();
 
-        Node<T> futurePointer = previousPointer.getNext();
-        futurePointer = futurePointer.getNext();
-        previousPointer.setNext(futurePointer);
-        nodesCount--;
+            Node<T> futurePointer = previousPointer.getNext();
+            futurePointer = futurePointer.getNext();
+            previousPointer.setNext(futurePointer);
+            nodesCount--;
+        }
     }
 
     /**
