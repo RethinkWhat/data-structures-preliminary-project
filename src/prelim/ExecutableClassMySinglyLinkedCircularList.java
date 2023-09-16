@@ -3,338 +3,306 @@
  * Date: September 15, 2023,
  * Name of Project: Prelim Programming Exercises
  * Sample Run:
- * ------------------------------------------------------------------------
- *                              Singly Linked List
- * ------------------------------------------------------------------------
- * 	This program allows a user to keep track of a list of bags, accepting
- * 	information like its brand, type and number of pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 2
- * ------------------------------------------------------------------------
- *     1. Delete bag at head.
- *     2. Delete bag at tail.
- *     3. Delete a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- * There are no bags in the list.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 3
- * There are no bags in the list.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- * ------------------------------------------------------------------------
- *     1. Add a bag at head.
- *     2. Add a bag at tail.
- *     3. Add a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- *   Enter the type of the bag: Backpack
- *   Enter the brand of the bag: Nike
- *   Enter the number of pockets of the bag: 4
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- * ------------------------------------------------------------------------
- *     1. Add a bag at head.
- *     2. Add a bag at tail.
- *     3. Add a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 2
- *   Enter the type of the bag: Sling bag
- *   Enter the brand of the bag: Adidas
- *   Enter the number of pockets of the bag: 2
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 4
- * 1. Nike, Backpack, 4 pockets.
- * 2. Adidas, Sling bag, 2 pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- * ------------------------------------------------------------------------
- *     1. Add a bag at head.
- *     2. Add a bag at tail.
- *     3. Add a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- *   Enter the type of the bag: Hand bag
- *   Enter the brand of the bag: Louis Vuitton
- *   Enter the number of pockets of the bag: 2
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 4
- * 1. Louis Vuitton, Hand bag, 2 pockets.
- * 2. Nike, Backpack, 4 pockets.
- * 3. Adidas, Sling bag, 2 pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- * ------------------------------------------------------------------------
- *     1. Add a bag at head.
- *     2. Add a bag at tail.
- *     3. Add a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 3
- * Enter index: 1
- *   Enter the type of the bag: Fanny pack
- *   Enter the brand of the bag: unbranded
- *   Enter the number of pockets of the bag: 1
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 4
- * 1. Louis Vuitton, Hand bag, 2 pockets.
- * 2. unbranded, Fanny pack, 1 pockets.
- * 3. Nike, Backpack, 4 pockets.
- * 4. Adidas, Sling bag, 2 pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 3
- * Enter the index of the number you would like to get: 1
- * unbranded, Fanny pack, 1 pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 2
- * ------------------------------------------------------------------------
- *     1. Delete bag at head.
- *     2. Delete bag at tail.
- *     3. Delete a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 1
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 4
- * 1. unbranded, Fanny pack, 1 pockets.
- * 2. Nike, Backpack, 4 pockets.
- * 3. Adidas, Sling bag, 2 pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 2
- * ------------------------------------------------------------------------
- *     1. Delete bag at head.
- *     2. Delete bag at tail.
- *     3. Delete a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 3
- * Enter index: 1
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 4
- * 1. unbranded, Fanny pack, 1 pockets.
- * 2. Adidas, Sling bag, 2 pockets.
- * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
- *      3. Get an object from the list.
- *      4. Display all bags in the list.
- *      5. Quit program.
- * ------------------------------------------------------------------------
- * Enter your choice: 2
- * ------------------------------------------------------------------------
- *     1. Delete bag at head.
- *     2. Delete bag at tail.
- *     3. Delete a bag at an index.
- * ------------------------------------------------------------------------
- * Enter your choice: 2
  *
  * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
+ *                         Singly Linked Circular List
+ * ------------------------------------------------------------------------
+ * 	This program allows a user to keep track of a list of books, accepting
+ * 	information like its type, genre and number of pages.
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
  *      3. Get an object from the list.
- *      4. Display all bags in the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a book at head.
+ *     2. Add a book at tail.
+ *     3. Add a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ *   Enter the name of book: Harry Potter and the Chamber of Secrets
+ *   Enter the genre of the book: adventure
+ *   Enter the number of pages of the book: 500
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a book at head.
+ *     2. Add a book at tail.
+ *     3. Add a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ *   Enter the name of book: Harry Potter and the Philosopher's Stone
+ *   Enter the genre of the book: fantasy
+ *   Enter the number of pages of the book: 521
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a book at head.
+ *     2. Add a book at tail.
+ *     3. Add a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter index: 1
+ *   Enter the name of book: Harry Potter and the Prisoner of Azkaban
+ *   Enter the genre of the book: fantasy
+ *   Enter the number of pages of the book: 590
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
  *      5. Quit program.
  * ------------------------------------------------------------------------
  * Enter your choice: 4
- * 1. unbranded, Fanny pack, 1 pockets.
+ * 1. Harry Potter and the Chamber of Secrets, adventure, 500 pages.
+ * 2. Harry Potter and the Prisoner of Azkaban, fantasy, 590 pages.
+ * 3. Harry Potter and the Philosopher's Stone, fantasy, 521 pages.
  * ------------------------------------------------------------------------
- *      1. Add a bag to the list.
- *      2. Delete a bag from the list.
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
  *      3. Get an object from the list.
- *      4. Display all bags in the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *     1. Add a book at head.
+ *     2. Add a book at tail.
+ *     3. Add a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter index: 1
+ *   Enter the name of book: Harry Potter and the Deathly Hollows
+ *   Enter the genre of the book: fantasy
+ *   Enter the number of pages of the book: f
+ * Enter a valid number. Try again.
+ *   Enter the number of pages of the book: 700
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. Harry Potter and the Chamber of Secrets, adventure, 500 pages.
+ * 2. Harry Potter and the Deathly Hollows, fantasy, 700 pages.
+ * 3. Harry Potter and the Prisoner of Azkaban, fantasy, 590 pages.
+ * 4. Harry Potter and the Philosopher's Stone, fantasy, 521 pages.
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *     1. Delete book at head.
+ *     2. Delete book at tail.
+ *     3. Delete a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 1
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. Harry Potter and the Deathly Hollows, fantasy, 700 pages.
+ * 2. Harry Potter and the Prisoner of Azkaban, fantasy, 590 pages.
+ * 3. Harry Potter and the Philosopher's Stone, fantasy, 521 pages.
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter the index of the book you would like to get: 1
+ * Harry Potter and the Prisoner of Azkaban, fantasy, 590 pages.
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *     1. Delete book at head.
+ *     2. Delete book at tail.
+ *     3. Delete a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 3
+ * Enter index: 1
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. Harry Potter and the Deathly Hollows, fantasy, 700 pages.
+ * 2. Harry Potter and the Philosopher's Stone, fantasy, 521 pages.
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *     1. Delete book at head.
+ *     2. Delete book at tail.
+ *     3. Delete a book at an index.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 2
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
+ *      5. Quit program.
+ * ------------------------------------------------------------------------
+ * Enter your choice: 4
+ * 1. Harry Potter and the Deathly Hollows, fantasy, 700 pages.
+ * ------------------------------------------------------------------------
+ *      1. Add a book to the list.
+ *      2. Delete a book from the list.
+ *      3. Get an object from the list.
+ *      4. Display all books in the list.
  *      5. Quit program.
  * ------------------------------------------------------------------------
  * Enter your choice: 5
  * Thank you for using the program!
  *
  * Process finished with exit code 0
- *
  */
 package prelim;
 import java.util.Scanner;
 
-public class ExecutableClassMySinglyLinkedList {
+public class ExecutableClassMySinglyLinkedCircularList {
 
     /**
      * Object to be passed into the Linked Lst
      */
-    public static class Bag {
+    public static class Book {
 
         /** Class variables*/
-        private String type;
-        private String brand;
-        private int pockets;
+        private String name;
+        private String genre;
+        private int pages;
 
         /**
          * Default Constructor
          * Algorithm:
          *      1. Assign default values
          */
-        public Bag() {
-            type = "backpack";
-            brand = "unbranded";
-            pockets = 2;
+        public Book() {
+            name = "Percy Jackson and the House of Hades";
+            genre = "romance";
+            pages = 200;
         }
 
         /**
-         * Constructor for bag
+         * Constructor for Book
          * Algorithm:
          *     1. Accept variables as a parameter
-         *     2. Assign the passed in values to Bag class's variables
-         * @param type : String
-         * @param brand : String
-         * @param pockets : int
+         *     2. Assign the passed in values to book class's variables
+         * @param name : String
+         * @param genre : pages
+         * @param pages : int
          */
-        public Bag(String type, String brand, int pockets) {
-            this.type = type;
-            this.brand = brand;
-            this.pockets = pockets;
+        public Book(String name, String genre, int pages) {
+            this.name = name;
+            this.genre = genre;
+            this.pages = pages;
         }
 
         /**
-         * Return the type of bag
-         * @return type
+         * Return the name of Book
+         * @return name
          */
-        public String getType() {
-            return type;
+        public String getName() {
+            return name;
         }
 
         /**
-         * Returns the brand of the bag
-         * @return brand
+         * Returns the genre of the Book
+         * @return genre
          */
-        public String getBrand() {
-            return brand;
+        public String getGenre() {
+            return genre;
         }
 
         /**
-         * Returns the number of pockets of the bag
-         * @return pockets
+         * Returns the number of pages of the Book
+         * @return pages
          */
-        public int getPockets() {
-            return pockets;
+        public int getPages() {
+            return pages;
         }
 
         /**
-         * Set the type of the bag
-         * @param type : String
+         * Set the name of the Book
+         * @param name : String
          */
-        public void setType(String type) {
-            this.type = type;
+        public void setName(String name) {
+            this.name = name;
         }
 
         /**
-         * Set the brand of the bag
-         * @param brand : String
+         * Set the genre of the book
+         * @param genre : String
          */
-        public void setBrand(String brand) {
-            this.brand = brand;
+        public void setGenre(String genre) {
+            this.genre = genre;
         }
 
         /**
-         * Set the number of pockets of the bag
-         * @param pockets : int
+         * Set the number of pages of the book
+         * @param pages : int
          */
-        public void setPockets(int pockets) {
-            this.pockets = pockets;
+        public void setPages(int pages) {
+            this.pages = pages;
         }
 
         /**
-         * Returns the Bag object in string representations
-         * @return brand, type, pockets.
+         * Returns the Book object in string representations
+         * @return name, genre, pages.
          */
         public String toString() {
-            return brand + ", " + type + ", " + pockets + " pockets.";
+            return name + ", " + genre + ", " + pages + " pages.";
         }
     }
 
 
     static Scanner keyboard = new Scanner(System.in);                       // Scanner object to be used to accept user int
-    static MySinglyLinkedList<Bag> bagList = new MySinglyLinkedList<Bag>(); // Create a MySinglyLinkedList to hold all the bags
+    static MySinglyLinkedCircularList<Book> bookList = new MySinglyLinkedCircularList<Book>(); // Create a MySinglyLinkedCircularList to hold all the Books
 
     static String invalidNumber = "Enter a valid number.";                  // Error message for when an invalid number is passed in
-    static String indexDoesNotExist = "There is no room for the bag " +     // Error message for when the index does not exist
+    static String indexDoesNotExist = "There is no room for the book " +     // Error message for when the index does not exist
             "at that index";
 
     /**
@@ -352,7 +320,7 @@ public class ExecutableClassMySinglyLinkedList {
      */
     public static void showHeader() {
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("                             Singly Linked List                 ");
+        System.out.println("                        Singly Linked Circular List                 ");
         System.out.println("------------------------------------------------------------------------");
     }
 
@@ -360,8 +328,8 @@ public class ExecutableClassMySinglyLinkedList {
      * Method to show what the application does to user.
      */
     public static void showInstructions() {
-        System.out.println("\tThis program allows a user to keep track of a list of bags, " +
-                "accepting \n\tinformation like its brand, type and number of pockets.");
+        System.out.println("\tThis program allows a user to keep track of a list of books, " +
+                "accepting \n\tinformation like its type, genre and number of pages.");
     }
 
     /**
@@ -375,7 +343,7 @@ public class ExecutableClassMySinglyLinkedList {
             try {
                 logicMenu();
             } catch (NullPointerException ex) {
-                System.out.println("There are no bags in the list.");
+                System.out.println("There are no books in the list.");
             }
         } while (true);
     }
@@ -390,7 +358,7 @@ public class ExecutableClassMySinglyLinkedList {
      *              - Add an object
      *              - delete an object
      *              - get an object
-     *              - show all bags
+     *              - show all books
      *              - quit program
      */
     public static void logicMenu(){
@@ -400,7 +368,7 @@ public class ExecutableClassMySinglyLinkedList {
             case 1-> addObject();
             case 2-> deleteObject();
             case 3-> getObject();
-            case 4-> showBags();
+            case 4-> showBooks();
             case 5-> quit();
         }
     }
@@ -412,20 +380,20 @@ public class ExecutableClassMySinglyLinkedList {
      */
     public static void showMainMenu() {
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("     1. Add a bag to the list.");
-        System.out.println("     2. Delete a bag from the list.");
+        System.out.println("     1. Add a book to the list.");
+        System.out.println("     2. Delete a book from the list.");
         System.out.println("     3. Get an object from the list.");
-        System.out.println("     4. Display all bags in the list. ");
+        System.out.println("     4. Display all books in the list. ");
         System.out.println("     5. Quit program.");
         System.out.println("------------------------------------------------------------------------");
     }
 
     /**
      * Method to handle user input for a number in a range
-     * @param min
-     * @param max
-     * @param prompt
-     * @param errorMessage
+     * @param min : int
+     * @param max : int
+     * @param prompt : String
+     * @param errorMessage : String
      * @return choice
      *
      * Algorithm:
@@ -458,10 +426,10 @@ public class ExecutableClassMySinglyLinkedList {
      * Method to handle logic for adding an object
      * Algorithm:
      *      1. Call the showAddMenu method
-     *      2. Use enterChoice method to get user input for where they would like to input new bag in the list
+     *      2. Use enterChoice method to get user input for where they would like to input new book in the list
      *      3. Create an int object to hold possible index (if user chooses to add at an index)
      *      4. If user chooses to add at an index request index from user using Scanner object
-     *      5. Call the requestBag method to request Bag details from user
+     *      5. Call the requestBook method to request book details from user
      *      6. Create a switch statement to handle user's choice of where to add
      *          6.1. call insertAtHead method if user choice == 1
      *          6.2. call insertAtTail method if user choice == 2
@@ -472,69 +440,69 @@ public class ExecutableClassMySinglyLinkedList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, bagList.getNodesCount(),"Enter index: ", indexDoesNotExist);
-        Bag newBag = requestBag();
+            index = enterChoice(0, bookList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+        Book newbook = requestBook();
         switch (choice) {
-            case 1 -> bagList.insertAtHead(newBag);
-            case 2 -> bagList.insertAtTail(newBag);
-            case 3 -> bagList.insertAtIndex(index,newBag);
+            case 1 -> bookList.addAtHead(newbook);
+            case 2 -> bookList.addAtTail(newbook);
+            case 3 -> bookList.addAtIndex(index,newbook);
         }
     }
 
     /**
-     * Method to handle asking user to enter Bag details
-     * @return Bag
+     * Method to handle asking user to enter book details
+     * @return Book
      * Algorithm:
-     *      1. Have user enter the type of bag and accept user input
-     *      2. Have user enter the brand of bag and accept user input
+     *      1. Have user enter the type of book and accept user input
+     *      2. Have user enter the genre of book and accept user input
      *      3. Create a boolean variable
-     *      4. Wrap a do-while statement outside a try and catch statement for requesting  number of pockets from
+     *      4. Wrap a do-while statement outside a try and catch statement for requesting  number of pages from
      *      user such that even when the user inputs a String by accident the program will not come to a halt due
      *      to the error.
-     *      5. Create a new Bag object from passed in Bag information and return it
+     *      5. Create a new book object from passed in book information and return it
      */
-    public static Bag requestBag() {
-        System.out.print("  Enter the type of the bag: ");
-        String bagType = keyboard.nextLine();
-        System.out.print("  Enter the brand of the bag: ");
-        String bagBrand = keyboard.nextLine();
+    public static Book requestBook() {
+        System.out.print("  Enter the name of book: ");
+        String bookName = keyboard.nextLine();
+        System.out.print("  Enter the genre of the book: ");
+        String bookGenre = keyboard.nextLine();
         boolean condition = false;
-        int pocketsNumber = 0;
+        int pagesNumber = 0;
         do {
             try {
-                System.out.print("  Enter the number of pockets of the bag: ");
-                pocketsNumber = Integer.parseInt(keyboard.nextLine());
+                System.out.print("  Enter the number of pages of the book: ");
+                pagesNumber = Integer.parseInt(keyboard.nextLine());
                 condition = true;
             } catch (NumberFormatException ex){
                 System.out.println("Enter a valid number. Try again.");
             }
         } while (!condition);
-        return new Bag(bagType,bagBrand,pocketsNumber);
+        return new Book(bookName,bookGenre,pagesNumber);
     }
 
     /**
-     * Method to show the options for where to add a bag
+     * Method to show the options for where to add a book
      * Algorithm:
-     *      1. Make use of println to show all the possible ways to add a bag to the Bag List
+     *      1. Make use of println to show all the possible ways to add a book to the book List
      */
     public static void showAddMenu(){
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("    1. Add a bag at head. ");
-        System.out.println("    2. Add a bag at tail. ");
-        System.out.println("    3. Add a bag at an index. ");
+        System.out.println("    1. Add a book at head. ");
+        System.out.println("    2. Add a book at tail. ");
+        System.out.println("    3. Add a book at an index. ");
         System.out.println("------------------------------------------------------------------------");
     }
 
     /**
-     * Method to show the options for which bag to delete
+     * Method to show the options for which book to delete
      * Algorithm:
-     *      1. Make use of println to show all the possible options to deleting a bag in Bag list.
+     *      1. Make use of println to show all the possible options to deleting a book in Book list.
      */
     public static void showDeleteMenu(){
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("    1. Delete bag at head. ");
-        System.out.println("    2. Delete bag at tail. ");
-        System.out.println("    3. Delete a bag at an index. ");
+        System.out.println("    1. Delete book at head. ");
+        System.out.println("    2. Delete book at tail. ");
+        System.out.println("    3. Delete a book at an index. ");
         System.out.println("------------------------------------------------------------------------");
     }
 
@@ -555,11 +523,11 @@ public class ExecutableClassMySinglyLinkedList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, bagList.getNodesCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, bookList.getNodeCount(),"Enter index: ", indexDoesNotExist);
         switch (choice) {
-            case 1 -> bagList.deleteHead();
-            case 2 -> bagList.deleteTail();
-            case 3 -> bagList.deleteAtIndex(index);
+            case 1 -> bookList.deleteHead();
+            case 2 -> bookList.deleteTail();
+            case 3 -> bookList.deleteAtIndex(index);
         }
     }
 
@@ -567,14 +535,14 @@ public class ExecutableClassMySinglyLinkedList {
      * Method to handle getting an object from the list
      * Algorithm:
      *      1. Request an index from user using the enterChoice method
-     *      2. Insert the index specified to the get method of bagList and display the returned bag to user.
+     *      2. Insert the index specified to the get method of bookList and display the returned book to user.
      */
     public static void getObject()  {
-        if ( bagList.getNodesCount() !=0) {
-            int choice = enterChoice(0, bagList.getNodesCount() - 1, "Enter the index of the bag you would like to get: ", invalidNumber);
-            System.out.println(bagList.get(choice));
+        if ( bookList.getNodeCount() !=0) {
+            int choice = enterChoice(0, bookList.getNodeCount() - 1, "Enter the index of the book you would like to get: ", invalidNumber);
+            System.out.println(bookList.get(choice));
         } else {
-            System.out.println("There are no bags in the list.");
+            System.out.println("There are no books in the list.");
         }
     }
 
@@ -590,13 +558,13 @@ public class ExecutableClassMySinglyLinkedList {
     }
 
     /**
-     * Method to handle showing all bags in list to user
+     * Method to handle showing all books in list to user
      * Algorithm:
-     *      1. Create a for loop to iterate through all bags in the list and display each of them to user.
+     *      1. Create a for loop to iterate through all books in the list and display each of them to user.
      */
-    public static void showBags() {
-        for (int x = 0; x<bagList.getNodesCount(); x++)
-            System.out.println((x+1) + ". " + bagList.get(x));
+    public static void showBooks() {
+        for (int x = 0; x<bookList.getNodeCount(); x++)
+            System.out.println((x+1) + ". " + bookList.get(x));
     }
 
 }

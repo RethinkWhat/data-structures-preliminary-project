@@ -424,7 +424,7 @@ public class ExecutableClassMyDoublyLinkedList {
      *              2.2.2. Accept user input through Scanner object
      *              2.2.3. Display error message to user if input not within passed in range
      *          2.3. In catch block:
-     *              2.3.1. Tell the uer to enter an integer
+     *              2.3.1. Tell the user to enter an integer
      */
     public static int enterChoice(int min, int max, String prompt, String errorMessage) {
         int choice = -1;
