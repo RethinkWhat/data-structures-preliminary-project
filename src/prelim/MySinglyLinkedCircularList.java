@@ -1,17 +1,19 @@
 package prelim;
 
+import java.util.NoSuchElementException;
+
 /**
  * Class for a Singly Linked Circular List
  * @param <T>
  */
-public class MySinglyLinkedCircularList<T> {
+public class MySinglyLinkedCircularList<T> implements MyList<T>{
 
     /** Class variables */
     private Node<T> head;
     private Node<T> tail;
 
     // Variable to hold the number of nodes in the linked list
-    private int nodeCount = 0;
+    private int size = 0;
 
 
     /**
@@ -50,9 +52,82 @@ public class MySinglyLinkedCircularList<T> {
      * Method to get the total number of nodes
      * @return nodeCount
      */
-    public int getNodeCount() {
-        return nodeCount;
+    public int getSize() {
+        return size;
     }
+
+
+    /**
+     * Method to get element given a passed in data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return the data
+     *          2.2 Have tempPointer equal to the next node in the list
+     *      3. If for loop is exited  throw NoSuchElementException
+     * @param data :T
+     * @return
+     * @throws NoSuchElementException
+     */
+    @Override
+    public T getElement(T data) throws NoSuchElementException {
+        Node<T> tempPointer = head;
+        for (int x=0; x<size; x++) {
+            if(tempPointer.getData()==data)
+                return tempPointer.getData();
+            tempPointer = tempPointer.getNext();
+        }
+        throw new NoSuchElementException();
+    }
+
+    /**
+     * Method to delete an object given a passed in datum
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data
+     *                  2.2. Call deleteAtIndex method and pass in x
+     *                  2.3. Return true
+     *          2.2. Set temNode equal to next node in list
+     *      3. If for loop is exited return false
+     * @param data : T
+     * @return deleteConfirmation
+     */
+    @Override
+    public boolean delete(T data) {
+        Node<T> tempNode = head;
+        for (int x=0; x<size; x++) {
+            if(tempNode.getData() == data) {
+                deleteAtIndex(x);
+                return true;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return false;
+    }
+
+    /**
+     * Method to search for object index given data
+     * Algorithm:
+     *      1. Create a tempPointer object and set it to head
+     *      2. Create a for loop to traverse all nodes in linked list
+     *          2.1. If tempPointer data equals passed in data return x
+     *      3. Have temp Pointer object equal next node in list
+     *      4. Return -1 if object exits for loops
+     * @param data : T
+     * @return index
+     */
+    @Override
+    public int search(T data) {
+        Node<T> tempPointer = head;
+        for (int x = 0; x<size; x++) {
+            if (tempPointer.getData() == data)
+                return x;
+            tempPointer = tempPointer.getNext();
+        }
+        return -1;
+    }
+
 
     /**
      * Method to get  Node at a passed in index
@@ -66,7 +141,7 @@ public class MySinglyLinkedCircularList<T> {
      */
     public Node<T> get(int index) {
         Node<T> tempPointer = head;
-        for (int x = 0; x < nodeCount; x++){
+        for (int x = 0; x < size; x++){
             if (x==index)
                 return tempPointer;
             tempPointer = tempPointer.getNext();
@@ -97,7 +172,7 @@ public class MySinglyLinkedCircularList<T> {
             head = newNode;
             tail.setNext(head);
         }
-        nodeCount++;
+        size++;
     }
 
     /**
@@ -110,7 +185,7 @@ public class MySinglyLinkedCircularList<T> {
      *      5. Increment nodeCount by 1
      * @param datum
      */
-    public void addAtTail(T datum) {
+    public void insert(T datum) {
         Node<T> newNode = new Node<>(datum);
         if (head == null) {
             head = newNode;
@@ -119,7 +194,7 @@ public class MySinglyLinkedCircularList<T> {
             newNode.setNext(head);
         }
         tail = newNode;
-        nodeCount++;
+        size++;
     }
 
     /**
@@ -143,8 +218,8 @@ public class MySinglyLinkedCircularList<T> {
         Node<T> newNode = new Node<>(datum);
         if (index == 0) {
             addAtHead(datum);
-        } else if (index == nodeCount) {
-            addAtTail(datum);
+        } else if (index == size) {
+            insert(datum);
         }
         else {
             Node<T> tempPointer = head;
@@ -154,7 +229,7 @@ public class MySinglyLinkedCircularList<T> {
             Node<T> after = tempPointer.getNext();
             tempPointer.setNext(newNode);
             newNode.setNext(after);
-            nodeCount++;
+            size++;
         }
     }
 
@@ -171,7 +246,7 @@ public class MySinglyLinkedCircularList<T> {
         Node<T> tempPointer = head.getNext();
         tail.setNext(tempPointer);
         head = tempPointer;
-        nodeCount--;
+        size--;
     }
 
     /**
@@ -194,7 +269,7 @@ public class MySinglyLinkedCircularList<T> {
         tail.setNext(null);
         tail = tempPointer;
         tempPointer.setNext(head);
-        nodeCount--;
+        size--;
     }
 
     /**
@@ -216,7 +291,7 @@ public class MySinglyLinkedCircularList<T> {
 
         if (index == 0) {
             deleteHead();
-        } else if (index== nodeCount-1)
+        } else if (index== size-1)
             deleteTail();
         else {
             Node<T> tempPointer = head;
@@ -226,7 +301,7 @@ public class MySinglyLinkedCircularList<T> {
             Node<T> after = toDelete.getNext();
             toDelete.setNext(null);
             tempPointer.setNext(after);
-            nodeCount--;
+            size--;
         }
     }
 }

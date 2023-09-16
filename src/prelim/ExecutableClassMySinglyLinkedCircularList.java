@@ -440,11 +440,11 @@ public class ExecutableClassMySinglyLinkedCircularList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, bookList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, bookList.getSize(),"Enter index: ", indexDoesNotExist);
         Book newbook = requestBook();
         switch (choice) {
             case 1 -> bookList.addAtHead(newbook);
-            case 2 -> bookList.addAtTail(newbook);
+            case 2 -> bookList.insert(newbook);
             case 3 -> bookList.addAtIndex(index,newbook);
         }
     }
@@ -523,7 +523,7 @@ public class ExecutableClassMySinglyLinkedCircularList {
         int choice = enterChoice(1,3, "Enter your choice: ",invalidNumber);
         int index = 0;
         if (choice==3)
-            index = enterChoice(0, bookList.getNodeCount(),"Enter index: ", indexDoesNotExist);
+            index = enterChoice(0, bookList.getSize(),"Enter index: ", indexDoesNotExist);
         switch (choice) {
             case 1 -> bookList.deleteHead();
             case 2 -> bookList.deleteTail();
@@ -538,8 +538,8 @@ public class ExecutableClassMySinglyLinkedCircularList {
      *      2. Insert the index specified to the get method of bookList and display the returned book to user.
      */
     public static void getObject()  {
-        if ( bookList.getNodeCount() !=0) {
-            int choice = enterChoice(0, bookList.getNodeCount() - 1, "Enter the index of the book you would like to get: ", invalidNumber);
+        if ( bookList.getSize() !=0) {
+            int choice = enterChoice(0, bookList.getSize() - 1, "Enter the index of the book you would like to get: ", invalidNumber);
             System.out.println(bookList.get(choice));
         } else {
             System.out.println("There are no books in the list.");
@@ -563,7 +563,7 @@ public class ExecutableClassMySinglyLinkedCircularList {
      *      1. Create a for loop to iterate through all books in the list and display each of them to user.
      */
     public static void showBooks() {
-        for (int x = 0; x<bookList.getNodeCount(); x++)
+        for (int x = 0; x<bookList.getSize(); x++)
             System.out.println((x+1) + ". " + bookList.get(x));
     }
 
